@@ -22,7 +22,7 @@ while loop:
 	elif choice == '2':
 		print("Wybrałeś opcję numer 2 -> Wyświetl informacje o danym mieście")
 	elif choice == '3':
-		print("Wybrałeś opcję numer 3 -> Dodan nowe miasto")
+		print("Wybrałeś opcję numer 3 -> Dodaj nowe miasto")
 	elif choice == '4':
 		print("Wybrałeś opcję numer 4 -> Edytuj dane miasto")
 	elif choice == '5':
