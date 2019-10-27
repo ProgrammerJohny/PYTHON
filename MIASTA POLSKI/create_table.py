@@ -35,7 +35,7 @@ val = [
 (24,"Zielona Góra","powiat Zielona Góra","lubuskie","140 113","278,3 km2"),
 (25,"Rybnik","powiat Rybnik","śląskie","138 919","148,4 km2"),
 (26,"Ruda Śląska","powiat Ruda Śląska","śląskie","138 215","77,7 km2"),
-(27,"Opole","powiat Opole","opolskie","opolskie","128 224","149,9 km2"),
+(27,"Opole","powiat Opole","opolskie","128 224","149,9 km2"),
 (28,"Tychy","powiat Tychy","śląskie","128 049","81,8 km2"),
 (29,"Gorzów Wielkopolski","powiat Gorzów Wielkopolski","lubuskie","124 177","85,7 km2"),
 (30,"Dąbrowa Górnicza","powiat Dąbrowa Górnicza","śląskie","120 777","188,7 km2"),
@@ -49,7 +49,7 @@ val = [
 (38,"Kalisz","powiat Kalisz","wielkopolskie","101 279","69,4 km2"),
 (39,"Legnica","powiat Legnica","dolnośląskie","100 081","56,3 km2"),
 (40,"Grudziądz","powiat Grudziądz","kujawsko-pomorskie","95 354","57,8 km2"),
-(41,"Jaworzno","powiat Jaworzno","powiat Jaworzno","śląskie","91 758","152,6 km2"),
+(41,"Jaworzno","powiat Jaworzno","śląskie","91 758","152,6 km2"),
 (42,"Słupsk","powiat Słupsk","pomorskie","91 225","43,2 km2"),
 (43,"Jastrzębie-Zdrój","powiat Jastrzębie-Zdrój","śląskie","89 353","85,3 km2"),
 (44,"Nowy Sącz","powiat Nowy Sącz","małopolskie","83 958","57,6 km2"),
@@ -65,3 +65,37 @@ mycursor.executemany(sql,val)
 mydb.commit()
 
 print(mycursor.rowcount, " cities was inserted.")
+mycursor.execute("SELECT * FROM miasta")
+selected_miasta = mycursor.fetchall()
+for x in selected_miasta:
+	print(x)
+
+mycursor.execute("CREATE TABLE woj(id_woj INT AUTO_INCREMENT PRIMARY KEY,woj VARCHAR(100))")
+sql = "INSERT INTO woj(id_woj,woj) VALUES(%s,%s)"
+val = [
+(1,"dolnośląskie"),
+(2,"kujawsko-pomorskie"),
+(3,"lubelskie"),
+(4,"łódzkie"),
+(5,"lubuskie"),
+(6,"małopolskie"),
+(7,"mazowieckie"),
+(8,"opolskie"),
+(9,"podkarpackie"),
+(10,"podlaskie"),
+(11,"pomorskie"),
+(12,"śląskie"),
+(13,"świętokrzyskie"),
+(14,"warmińsko-mazurskie"),
+(15,"wielkopolskie"),
+(16,"zachodniopomorskie")
+
+]
+mycursor.executemany(sql,val)
+mydb.commit()
+
+print(mycursor.rowcount," provinces was inserted")
+mycursor.execute("SELECT * FROM woj")
+selected_woj = mycursor.fetchall()
+for x in selected_woj:
+	print(x)
