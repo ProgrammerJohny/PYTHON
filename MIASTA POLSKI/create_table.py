@@ -99,3 +99,4 @@ mycursor.execute("SELECT * FROM woj")
 selected_woj = mycursor.fetchall()
 for x in selected_woj:
 	print(x)
+## end of file
