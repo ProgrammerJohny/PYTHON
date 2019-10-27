@@ -5,7 +5,7 @@ import sys
 ctypes.windll.kernel32.SetConsoleTitleW("Miasta w Polsce")
 
 def menu():
-	print(30*"+","MENU",30*"+")
+	print(33*"+","MENU",32*"+")
 	print("1.Wyświetl wszystkie miasta")
 	print("2.Wyświetl informacje o danym mieście")
 	print("3.Dodaj nowe miasto")
